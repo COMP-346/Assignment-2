@@ -118,11 +118,12 @@ public class Client extends Thread {
             System.out.println("or could not be opened.");
             System.exit(0);
         }
-        while (inputStream.hasNextLine( ))
+        while (inputStream.hasNext())
         {
             try
-            {   transaction[i] = new Transactions();
-                transaction[i].setAccountNumber(inputStream.next());            /* Read account number */
+            {
+                transaction[i] = new Transactions();
+                transaction[i].setAccountNumber(inputStream.next()); /* Read account number */
                 transaction[i].setOperationType(inputStream.next());            /* Read transaction type */
                 transaction[i].setTransactionAmount(inputStream.nextDouble());  /* Read transaction amount */
                 transaction[i].setTransactionStatus("pending");                 /* Set current transaction status */
@@ -229,6 +230,7 @@ public class Client extends Thread {
             sendClientEndTime = System.currentTimeMillis();
 
             System.out.println("\n Terminating client Sending thread - " + " Running time " + (sendClientEndTime - sendClientStartTime) + " milliseconds");
+
         } else if (getClientOperation().equals("receiving")) {
 //            System.out.println("\n DEBUG : Client.run() - starting Client Receiver thread");
             receiveClientStartTime = System.currentTimeMillis();
