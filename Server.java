@@ -277,8 +277,8 @@ public class Server extends Thread {
 //            	 Thread.yield(); 	/* Yield the cpu if the network input buffer is empty */
 //             }
 
-            if (!Network.getInBufferStatus().equals("empty") && Network.getServerConnectionStatus().equals("connected"))
-            {
+//            if (!Network.getInBufferStatus().equals("empty") && Network.getServerConnectionStatus().equals("connected"))
+//            {
                 /* System.out.println("\n DEBUG : Server.processTransactions() - transferring in account " + trans.getAccountNumber()); */
 
                 Network.transferIn(trans);                              /* Transfer a transaction from the network input buffer */
@@ -335,7 +335,7 @@ public class Server extends Thread {
                 Network.transferOut(trans);                            		/* Transfer a completed transaction from the server to the network output buffer */
                 setNumberOfTransactions( (getNumberOfTransactions() +  1) ); 	/* Count the number of transactions processed */
             }
-        }
+//        }
 
         /* System.out.println("\n DEBUG : Server.processTransactions() - " + getNumberOfTransactions() + " accounts updated"); */
 
